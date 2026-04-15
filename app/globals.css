@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── FONTS ─── */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap");
+
+:root {
+  --font-dm-sans: "DM Sans", system-ui, sans-serif;
+
+  /* Brand palette */
+  --redo-black: #0a0a0d;
+  --redo-card: #0e0e11;
+  --redo-surface: #141417;
+  --redo-border: #1e1e22;
+  --redo-border-hover: #2a2a2f;
+  --redo-orange: #f97316;
+  --redo-rose: #f43f5e;
+  --redo-text: #fafafa;
+  --redo-muted: #6b7280;
+}
+
+/* ─── BASE ─── */
+@layer base {
+  * {
+    border-color: var(--redo-border);
+  }
+
+  body {
+    font-family: var(--font-dm-sans);
+    background: var(--redo-black);
+    color: var(--redo-text);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--redo-orange);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── CUSTOM SCROLLBAR ─── */
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #333;
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+}
+
+/* ─── ANIMATIONS ─── */
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+}
+
+/* ─── GRADIENT TEXT ─── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--redo-orange), var(--redo-rose), var(--redo-orange));
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── NOISE OVERLAY ─── */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ─── SELECTION ─── */
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: white;
+}
