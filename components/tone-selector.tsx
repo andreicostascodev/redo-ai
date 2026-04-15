@@ -9,7 +9,7 @@ import type { Tone } from "@/lib/prompts";
 interface ToneOption {
   id: Tone;
   label: string;
-  icon: React.FC<{ className?: string }>;
+  icon: React.FC<{ className?: string; style?: React.CSSProperties }>;
   color: string;
   description: string;
 }
