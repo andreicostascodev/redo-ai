@@ -367,6 +367,7 @@ const PromptInputActions: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
 interface PromptInputActionProps extends React.ComponentProps<typeof Tooltip> {
   tooltip: React.ReactNode;
   children: React.ReactNode;
+  className?: string;
   side?: "top" | "bottom" | "left" | "right";
 }
 
